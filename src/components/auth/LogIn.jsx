@@ -1,13 +1,12 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
 import { MdAlternateEmail } from "react-icons/md";
 import { FaFingerprint, FaEye, FaEyeSlash } from "react-icons/fa";
-import { FaApple, FaGoogle } from "react-icons/fa";
+import { FaApple} from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-
 import { useNavigate } from "react-router-dom";
+
+// import { NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
-// import SignUp from './SignUp'
 
 function LogIn() {
   const navigate = useNavigate();
@@ -25,8 +24,8 @@ function LogIn() {
     <div className="w-full h-screen flex justify-center items-center">
       <div className="w-[90%] max-w-sm md:max-x-md lg:max-w-md p-5 bg-gray-900 flex-col flex items-center gap-3 rounded-xl shadow-slate-500 shadow-lg">
         {/* <img src="/background-image.jpg" alt="logo" className="w-12 md:w-14" /> */}
-        <h1 className="text-lg md:text-xl font-semibold">Welcome Back</h1>
-        <p className="text-xs md:text-sm text-gray-500 text-center">
+        <h1 className="text-lg md:text-xl font-semibold mt-5">Welcome Back</h1>
+        <p className="text-xs md:text-sm text-gray-500 text-center mb-5">
           Don't have an account?
           <span
             className="text-white cursor-pointer ml-1"
@@ -42,7 +41,7 @@ function LogIn() {
             <input
               type="email"
               placeholder="Enter Your Email"
-              className="bg-transparent border-0 w-full outline-none text-sm md:text-base"
+              className="bg-transparent border-0 w-full outl</div>ine-none text-sm md:text-base"
             />
           </div>
           {/* Password section */}
@@ -84,8 +83,7 @@ function LogIn() {
             <FaApple className="text-lg md:text-xl " />
           </div>
           <div className="p-2 md:px-10 bg-slate-700 cursor-pointer rounded-xl hover:bg-slate-800 shadow-lg">
-            {/* <img src="/google-icon.png" alt="" /> */}
-            <FaGoogle />
+            <img src="src/components/google_logo.png" alt="Google logo" className="w-5 h-5 md:w-6 md:h-6" />
           </div>
           <div className="p-2 md:px-10 bg-slate-700 cursor-pointer rounded-xl hover:bg-slate-800 shadow-lg">
             <FaXTwitter className="text-lg md:text-xl " />

@@ -13,7 +13,9 @@ const router = createBrowserRouter([
     element: <LogIn />,
     errorElement: <ErrorPage />, // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
   },
-  { path: "/SignUp", element: <SignUp /> },
+  { path: "/SignUp", element: <SignUp />, 
+    errorElement: <ErrorPage /> // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
+  },
 ]);
 
 function App() {

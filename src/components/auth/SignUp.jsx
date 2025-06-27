@@ -12,6 +12,12 @@ function SignUp() {
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [errors, setErrors] = React.useState({});
+  
+  // Show and hide password
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -19,10 +25,53 @@ function SignUp() {
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
-
+  // navigation to Log In page
   const handleLogin = () => {
     navigate("/");
   };
+
+  // Validation schema using Yup
+  const signUpSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required")
+      .trim()
+      .test("no-only-spaces", "Email cannot be only spaces", val => val && val.trim().length > 0),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required")
+      .trim()
+      .test("no-only-spaces", "Password cannot be only spaces", val => val && val.trim().length > 0),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm Password is required")
+      .trim()
+      .test("no-only-spaces", "Confirm Password cannot be only spaces", val => val && val.trim().length > 0),
+  });
+
+  // Function to handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = {
+      email: email.trim(),
+      password: password.trim(),
+      confirmPassword: confirmPassword.trim(),
+  };
+
+  try {
+    await signUpSchema.validate(formData, { abortEarly: false });
+    setErrors({});
+    console.log("✅ Form valid. Sending data:", formData);
+    // If validation passes, proceed with sign-up logic
+  } catch (error) {
+    // If validation fails, set errors
+    const validationErrors = {};
+    error.inner.forEach(e => {
+      validationErrors[e.path] = e.message;
+      });
+      setErrors(validationErrors);
+  }
+};
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
@@ -45,9 +94,12 @@ function SignUp() {
             <input
               type="email"
               placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="bg-transparent border-0 w-full outline-none text-sm md:text-base"
             />
           </div>
+          {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
 
           {/* Password */}
           <div className="w-full flex items-center bg-gray-800 p-2 rounded-xl gap-2">
@@ -55,6 +107,8 @@ function SignUp() {
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="bg-transparent border-0 w-full outline-none text-sm md:text-base"
             />
             {showPassword ? (
@@ -69,6 +123,7 @@ function SignUp() {
               />
             )}
           </div>
+          {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
 
           {/* Confirm Password */}
           <div className="w-full flex items-center bg-gray-800 p-2 rounded-xl gap-2">
@@ -76,6 +131,8 @@ function SignUp() {
             <input
               type={showConfirmPassword ? "text" : "password"}
               placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               className="bg-transparent border-0 w-full outline-none text-sm md:text-base"
             />
             {showConfirmPassword ? (
@@ -90,9 +147,10 @@ function SignUp() {
               />
             )}
           </div>
+          {errors.confirmPassword && <p className="text-red-500 text-xs">{errors.confirmPassword}</p>}
         </div>
 
-        <button className="w-full bg-green-500 text-white p-2 rounded-xl mt-3 text-sm md:text-base hover:bg-green-700 transition duration-200">
+        <button onClick={handleSubmit} className="w-full bg-green-500 text-white p-2 rounded-xl mt-3 text-sm md:text-base hover:bg-green-700 transition duration-200">
           Sign Up
         </button>
 

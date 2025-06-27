@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-no-repeat bg-cover bg-center min-h-screen;
+    background-image: url("../src/components/Forms/wallpaper.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff;
+    text-decoration: none;
+    list-style: none;
+}

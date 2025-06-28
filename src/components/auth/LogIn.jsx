@@ -58,6 +58,8 @@ function LogIn() {
       setErrors({});
       console.log("✅ Form valid. Sending data:", formData);
       // If validation passes, proceed with login logic
+      navigate("/home");
+
     } catch (error) {
       // If validation fails, set errors
       const validationErrors = {};
@@ -70,9 +72,11 @@ function LogIn() {
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
-      <div className="w-[90%] max-w-sm md:max-x-md lg:max-w-md p-5 bg-gray-900 flex-col flex items-center gap-3 rounded-xl shadow-slate-500 shadow-lg">
-        {/* <img src="/background-image.jpg" alt="logo" className="w-12 md:w-14" /> */}
-        <h1 className="text-lg md:text-xl font-semibold mt-5">Welcome Back</h1>
+      <div className="w-[90%] max-w-sm md:max-x-md lg:max-w-md p-5 bg-gray-900 flex-col flex items-center gap-3 rounded-xl shadow-slate-500 shadow-lg ">
+        <div className="group w-fit p-[3px] overflow-hidden flex items-center justify-center border-gradient-circle">
+          <img src="src\components\Inktrovert_logo.png" alt="logo" className="w-12 md:w-20 skaky-image" />
+        </div>
+        <h1 className="text-lg md:text-xl font-semibold">Welcome Back</h1>
         <p className="text-xs md:text-sm text-gray-500 text-center mb-5">
           Don't have an account?
           <span
@@ -124,12 +128,12 @@ function LogIn() {
           {/* Remember Me */}
           <div className="flex justify-between items-center mt-2">
             <div className="flex items-center text-xs md:text-sm">
-              <input 
-                type="checkbox" 
-                id="rememberMe" 
+              <input
+                type="checkbox"
+                id="rememberMe"
                 checked={RememberMe}
                 onChange={(e) => setRememberMe(e.target.checked)}
-                className="w-4 h-3 mr-2" 
+                className="w-4 h-3 mr-2"
               />
               <label htmlFor="rememberMe" className="text-xs md:text-sm text-gray-500 hover:text-white">
                 Remember Me
@@ -144,7 +148,7 @@ function LogIn() {
             </div>
           </div>
         </div>
-        <button onClick={handleSubmit} className="w-full bg-blue-500 text-white p-2 rounded-xl mt-3 text-sm md:text-base hover:bg-blue-700 transition duration-200">
+        <button onClick={handleSubmit} className="w-full bg-green-500 text-white p-2 rounded-xl mt-3 text-sm md:text-base hover:bg-green-700 transition duration-200">
           Log In
         </button>
 

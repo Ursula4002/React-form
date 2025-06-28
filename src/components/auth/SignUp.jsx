@@ -63,6 +63,7 @@ function SignUp() {
     setErrors({});
     console.log("✅ Form valid. Sending data:", formData);
     // If validation passes, proceed with sign-up logic
+    navigate("/home");
   } catch (error) {
     // If validation fails, set errors
     const validationErrors = {};

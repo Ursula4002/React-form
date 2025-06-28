@@ -12,3 +12,59 @@ body {
     text-decoration: none;
     list-style: none;
 }
+
+/* border-image-slice: 1; */
+.border-gradient-circle {
+    border: 3px solid #22c55e;
+    border-radius: 100% !important;
+    transition: border 0.4s ease;
+}
+/* padding: 5px; */
+
+/* .border-gradient-circle:hover {
+  border-image: linear-gradient(90deg, #22c55e, #3b82f6);
+  border-image-slice: 1;
+border-radius: 100% !important;
+} */
+
+.shaky-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* .border-gradient-circle:hover .shaky-image {
+  animation: shake 0.4s ease-in-out;
+} */
+
+/* .skaky-image:hover {
+    animation: shake 0.4s ease-in-out;
+} */
+
+@keyframes shake {
+    0% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(-2px, 2px);
+    }
+
+    50% {
+        transform: translate(2px, -2px);
+    }
+
+    75% {
+        transform: translate(-1px, 1px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* .animate-shake {
+    animation: shake 0.4s ease-in-out;
+} */

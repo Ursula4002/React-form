@@ -1,13 +1,14 @@
 import React from "react";
 import { MdAlternateEmail } from "react-icons/md";
 import { FaFingerprint, FaEye, FaEyeSlash } from "react-icons/fa";
-import { FaApple} from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 // import { NavLink } from "react-router-dom";
-// import { Link } from "react-router-dom";
+
 
 function LogIn() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ function LogIn() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [errors, setErrors] = React.useState({});
+  const [RememberMe, setRememberMe] = React.useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -38,6 +40,7 @@ function LogIn() {
       .required("Password is required")
       .trim()
       .test("no-only-spaces", "Password cannot be only spaces", val => val && val.trim().length > 0),
+    remember: Yup.boolean(),
   });
 
   // Function to handle form submission
@@ -47,6 +50,7 @@ function LogIn() {
     const formData = {
       email: email.trim(),
       password: password.trim(),
+      remember: RememberMe,
     };
 
     try {
@@ -87,13 +91,13 @@ function LogIn() {
               placeholder="Enter Your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-transparent border-0 w-full outl</div>ine-none text-sm md:text-base"
+              className="bg-transparent border-0 w-full outline-none text-sm md:text-base"
             />
           </div>
           {errors.email && <p className="text-red-500 text-xs">{errors.email}</p>}
 
           {/* Password section */}
-          
+
           <div className="w-full flex items-center bg-gray-800 p-2 rounded-xl gap-2">
             <FaFingerprint />
             <input
@@ -117,13 +121,28 @@ function LogIn() {
           </div>
           {errors.password && <p className="text-red-500 text-xs">{errors.password}</p>}
 
-          {/* Forgot Password */}
-          {/* <div className="w-full flex justify-end">
-            <NavLink to="/forgot-password" className="text-xs md:text-sm text-gray-500 hover:text-white">
-              Forgot Password?
-            </NavLink>
-          </div> */}
+          {/* Remember Me */}
+          <div className="flex justify-between items-center mt-2">
+            <div className="flex items-center text-xs md:text-sm">
+              <input 
+                type="checkbox" 
+                id="rememberMe" 
+                checked={RememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="w-4 h-3 mr-2" 
+              />
+              <label htmlFor="rememberMe" className="text-xs md:text-sm text-gray-500 hover:text-white">
+                Remember Me
+              </label>
+            </div>
 
+            {/* Forgot Password */}
+            <div className="flex justify-end">
+              <Link to="/ForgotPassword" className="text-xs md:text-sm text-gray-500 hover:text-white">
+                Forgot Password?
+              </Link>
+            </div>
+          </div>
         </div>
         <button onClick={handleSubmit} className="w-full bg-blue-500 text-white p-2 rounded-xl mt-3 text-sm md:text-base hover:bg-blue-700 transition duration-200">
           Log In

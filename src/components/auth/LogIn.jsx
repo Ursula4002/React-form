@@ -4,6 +4,7 @@ import { FaFingerprint, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import {Button} from "../ui/button";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 
@@ -71,7 +72,7 @@ function LogIn() {
   };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center">
+    <div className="w-full h-screen flex justify-center items-center login-form-container">
       <div className="w-[90%] max-w-sm md:max-x-md lg:max-w-md p-5 bg-gray-900 flex-col flex items-center gap-3 rounded-xl shadow-slate-500 shadow-lg ">
         <div className="group w-fit p-[3px] overflow-hidden flex items-center justify-center border-gradient-circle">
           <img src="src\components\Inktrovert_logo.png" alt="logo" className="w-12 md:w-20 skaky-image" />
@@ -151,6 +152,10 @@ function LogIn() {
         <button onClick={handleSubmit} className="w-full bg-green-500 text-white p-2 rounded-xl mt-3 text-sm md:text-base hover:bg-green-700 transition duration-200">
           Log In
         </button>
+        {/* <Button onClick={handleSubmit} className="w-full bg-green-500 text-white p-2 rounded-xl mt-3 text-sm md:text-base hover:bg-green-700 transition duration-200">
+          Log In
+        </Button> */}
+        {errors.form && <p className="text-red-500 text-xs">{errors.form}</p>}
 
         {/* Sign in with */}
 

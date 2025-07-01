@@ -75,7 +75,7 @@ function SignUp() {
 };
 
   return (
-    <div className="w-full h-screen flex justify-center items-center">
+    <div className="w-full h-screen flex justify-center items-center SignUp-form-container">
       <div className="w-[90%] max-w-sm md:max-x-md lg:max-w-md p-5 bg-gray-900 flex-col flex items-center gap-3 rounded-xl shadow-slate-500 shadow-lg">
         <h1 className="text-lg md:text-xl font-semibold mt-5">Create an Account</h1>
         <p className="text-xs md:text-sm text-gray-500 text-center mb-5">

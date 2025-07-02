@@ -5,7 +5,7 @@ function ErrorPage() {
     console.error(error);
 
     return (
-        <div id="error-page" className="flex flex-col items-center justify-center h-screen bg-gray-800 text-white-800">
+        <div id="error-page" className="flex flex-col items-center justify-center h-screen bg-gray-800 text-white">
             <div className="w-[90%] max-w-sm md:max-x-md lg:max-w-md p-5 bg-gray-900 flex-col flex items-center gap-3 rounded-xl shadow-slate-500 shadow-lg">
 
                 <h1 className="text-2xl font-bold">Oops!</h1>

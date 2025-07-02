@@ -6,6 +6,7 @@ import LogIn from "./components/auth/LogIn.jsx";
 import ErrorPage from "./components/error-page.jsx";
 import ForgotPassword from "./components/auth/ForgotPassword.jsx";
 import Home from "./Pages/home.jsx";
+import Profil from "./Pages/profil.jsx";
 
 // Define the routes for the application
 
@@ -24,6 +25,9 @@ const router = createBrowserRouter([
   { path: "/home", element: <Home /> 
     , errorElement: <ErrorPage /> // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
   },
+  { path: "/profil", element: <Profil />,
+    errorElement: <ErrorPage /> // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
+  }
 
 ]);
 

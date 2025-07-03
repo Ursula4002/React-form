@@ -23,17 +23,13 @@ body {
   transition: border 0.4s ease;
 }
 
-.shaky-image {
+/* .shaky-image {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
   transition: transform 0.2s ease-in-out;
-}
-
-
-
-
+} */
 
 @layer base {
   :root {
@@ -92,8 +88,6 @@ body {
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
@@ -102,4 +96,24 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html{
+  /* Hide scrollbars for aside and main in the home page layout */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbars for aside and main in the home page layout */
+.home-aside,
+.home-main,
+.sidebar * {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+.sidebar ::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+  width: 0 !important;
+  background: transparent !important;
 }

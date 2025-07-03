@@ -17,19 +17,19 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <LogIn />,
-    errorElement: <ErrorPage />, // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
+    errorElement: <ErrorPage />,
   },
   {
     path: "/SignUp", element: <SignUp />,
-    errorElement: <ErrorPage /> // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
+    errorElement: <ErrorPage />
   },
   {
     path: "/ForgotPassword", element: <ForgotPassword />,
-    errorElement: <ErrorPage /> // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
+    errorElement: <ErrorPage />
   },
   {
     path: "/home", element: <Home />
-    , errorElement: <ErrorPage /> // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
+    , errorElement: <ErrorPage />
   },
   {
     path: "/den", element: <Den />,
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/profil", element: <Profil />,
-    errorElement: <ErrorPage /> // ici la page qui s'affichera en cas d'erreur (route non trouvée, etc)
+    errorElement: <ErrorPage />
   }
 
 ]);
